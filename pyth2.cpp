@@ -2,9 +2,9 @@
 using u_t=unsigned;
 
 bool pyth(u_t a, u_t b, u_t c);
+const u_t MAX = 999999;
 
 bool max(u_t x, u_t y) {
-const u_t MAX = 999999;
 if (y != 0 && x > MAX / y){
 std::cerr << "Crossing the border";
 return true;
@@ -34,7 +34,7 @@ u_t a = 0, b = 0, c = 0;
 size_t count = 0;
 
 while(std::cin >> a){
-	if (max(a,b) || max(a,c) || max(b,c)){
+	if (max(a,a) || max(b,b) || max(c,c)){
         return 2;
         }
 	if (sum(a,b) || sum(a,c) || sum(b,c)){
