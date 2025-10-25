@@ -13,6 +13,8 @@ return false;
 }
 
 bool sum(u_t x, u_t y) {
+x = x * x;
+y = y * y;
 const u_t MAX = 999999;
 if (x > MAX - y){
 std::cerr << "Crossing the border";
@@ -32,11 +34,14 @@ u_t a = 0, b = 0, c = 0;
 size_t count = 0;
 
 while(std::cin >> a){
-	if (max(a,b)|| max(a,c) || max(b,c)){
+	if (max(a,b) || max(a,c) || max(b,c)){
+        return 2;
+        }
+	if (sum(a,b) || sum(a,c) || sum(b,c)){
         return 2;
         }
 
-	count += pyth(a,b,c)?1:0;
+	count += (pyth(a,b,c)?1:0);
 	c = b;
 	b = a;
 }
